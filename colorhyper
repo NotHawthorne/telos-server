@@ -1,0 +1,16 @@
+#!/bin/sh
+
+nothing_number="0"
+nothing_color="\e[0;32m"
+water_number="1"
+water_color="\e[1;34m"
+mountain_number="2"
+mountain_color="\e[1;33m"
+lava_number="3"
+lava_color="\e[1;31m"
+
+./hypernet | sed \
+	-e "s/"$nothing_number"/"$(printf "${nothing_color}${nothing_number}\e[m")"/g" \
+	-e "s/"$water_number"/"$(printf "${water_color}${water_number}\e[m")"/g" \
+	-e "s/"$mountain_number"/"$(printf "${mountain_color}${mountain_number}\e[m")"/g" \
+	-e "s/"$lava_number"/"$(printf "${lava_color}${lava_number}\e[m")"/g" \
